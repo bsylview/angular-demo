@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
       name: ['', [<any>Validators.required, <any>Validators.minLength(5), <any>Validators.maxLength(20)]],
       password: ['', [<any>Validators.required, <any>Validators.minLength(8)]],
     });
-    console.log('ngOnInit');
   }
 
   constructor(private _authService: AuthenticationService,
