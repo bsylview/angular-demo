@@ -1,0 +1,9 @@
+<div class="cb" [@collections]="collections?.length">
+  <img src="assets/loading.gif" *ngIf="!collections"/>
+  <div (click)="goToPhotos(collection.id)" class="card mb-4 box-shadow" *ngFor="let collection of collections">
+    <div class="card-body">
+      <h5 class="text-center card-title">{{collection.title}}</h5>
+      <img class="image rounded mx-auto d-block card-img-top" src={{collection.cover_photo?.urls.small}} alt="Collection cover photo">
+    </div>
+  </div>
+</div>

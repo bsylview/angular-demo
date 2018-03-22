@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
+import { CollectionsComponent } from './shared/components/collections/collections.component';
+import { PhotosComponent } from './shared/components/photos/photos.component';
 
 import { AuthGuard } from './shared/guards/auth-guard.guard';
 
@@ -20,7 +22,17 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'collections',
+    component: CollectionsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'photos/:collectionID',
+    component: PhotosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',

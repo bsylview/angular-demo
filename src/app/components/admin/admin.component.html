@@ -1,11 +1,1 @@
-<div  class="cb">
-  <hr/>
-  <b>Unsplash random pictures</b>
-  <hr/>
-  <img src="assets/loading.gif" *ngIf="!photos"/>
-  <ngb-carousel>
-    <ng-template ngbSlide  *ngFor="let pic of photos">
-      <img src={{pic.urls.small}} alt="Random unsplash picture" />
-    </ng-template>
-  </ngb-carousel>
-</div>
+<app-collections></app-collections>
