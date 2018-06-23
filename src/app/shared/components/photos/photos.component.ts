@@ -20,7 +20,7 @@ export class PhotosComponent implements OnInit {
 
   ngOnInit() {
     const collectionID: number  = +this.route.snapshot.paramMap.get('collectionID');
-    
+
     this._unsplashService.getTopCollectionPhotos(collectionID, 10, 'popular').subscribe(items => {
       this.photos = items;
     });

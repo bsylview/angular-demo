@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import Unsplash from 'unsplash-js';
-import { each} from 'lodash';
 
-import { Observable } from 'rxjs/Observable';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { catchError, map, tap, switchMap } from 'rxjs/operators';
+import { Observable ,  from as fromPromise } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 
@@ -24,7 +22,7 @@ export class UnsplashService {
     return fromPromise(unsplash.photos.listPhotos(2, 15, 'latest'))
     .pipe(switchMap((json: any) => json.json()));
   }
-  
+
   /** Get top 10 popular collections */
   getTopPopularCollections = (number: number): Observable<any> => {
     return fromPromise(unsplash.collections.listCuratedCollections(1, number))
@@ -32,7 +30,7 @@ export class UnsplashService {
         switchMap((json: any) => json.json())
       );
   }
-  
+
   getTopCollectionPhotos = (id: number, photos: number, orderBy: string): Observable<any> => {
     return fromPromise(unsplash.collections.getCuratedCollectionPhotos(id, 1, photos, orderBy))
       .pipe(
